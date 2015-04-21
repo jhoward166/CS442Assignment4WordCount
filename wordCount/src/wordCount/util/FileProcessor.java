@@ -21,7 +21,7 @@ public class FileProcessor{
             writer.close();
             buffWriter = new BufferedWriter(new FileWriter(outFileName, true));
         }catch(FileNotFoundException fnfe){
-            System.out.println("File could not be found.");
+            System.out.println(fnfe.getMessage());
         }catch(IOException ioe){
             System.out.println("I/O Exception");
         }
@@ -33,5 +33,11 @@ public class FileProcessor{
         }else{
             return null;
         }
+    }
+    
+    public void writeToFile(String message) throws IOException{
+        buffWriter.write(message);
+        buffWriter.newLine();
+        buffWriter.flush();
     }
 }

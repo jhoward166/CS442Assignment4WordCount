@@ -1,55 +1,12 @@
 package wordCount.treesForStrings;
 
+import wordCount.visitors.Visitor;
+
 public class BST{
 	private Node root;
 	private int totalNumWords = 0;
 	private int numUniqueWords = 0;
 	private int totalChars = 0;
-
-	private class Node{
-		private Node left;
-		private Node right;
-		private int instancesOfWord = 1;
-		private int numCharsInWord = 0;
-		private String word;
-
-		public Node(String word){
-			this.word = word;
-			numCharsInWord = word.length();
-		}
-		
-		public void incrementInstanceCount(){ //increments the number if the word is a duplicate
-			instancesOfWord++; 
-		}
-
-		public String getWord(){
-			return word;
-		}
-		
-		public void setLeft(Node left){
-			this.left = left;
-		}
-	
-		public void setRight(Node right){
-			this.right = right;
-		}	
-
-		public Node getLeft(){
-			return left;
-		}
-
-		public Node getRight(){
-			return right;
-		}
-
-		public int getNumChars(){
-			return numCharsInWord * instancesOfWord;
-		}
-
-		public int getInstanceCount(){
-			return instancesOfWord;
-		}
-	}
 	
 	public BST(){
 		root = null;
@@ -80,22 +37,10 @@ public class BST{
 		}
 		return node;
 	}
-
-	//Traverse the tree to get a data value
-	public int getNumWords(){
-		inorder(root, 1);
-		return totalNumWords;
-	}
-
-	public int getNumChars(){
-		inorder(root, 2);
-		return totalChars;
-	}
-
-	public int getNumUniqueWords(){
-		inorder(root, 3);
-		return numUniqueWords;
-	}
+    
+    public Node getRoot(){
+        return root;
+    }
 	
 	private void inorder(Node n, int selection){
 		if(n != null){
@@ -115,8 +60,8 @@ public class BST{
 		}
 	}
 
-/*	public void accept(Visitor visitor){ //accept the visitor
-		//visitor.visitBST(this);
-	}*/
+	public void accept(Visitor visitor){ //accept the visitor
+		visitor.visit(this);
+	}
 
 }
