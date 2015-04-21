@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import wordCount.util.Logger;
 
 public class FileProcessor{
     private Scanner scannerIn;
@@ -28,6 +29,7 @@ public class FileProcessor{
     }
 
     public String readWord(){
+        Logger.printToStdout(1, "The file is being read from.");
         if(scannerIn.hasNext()){
             return scannerIn.next();
         }else{
@@ -36,6 +38,7 @@ public class FileProcessor{
     }
     
     public void writeToFile(String message) throws IOException{
+        Logger.printToStdout(2, "The file is being written to.");
         buffWriter.write(message);
         buffWriter.newLine();
         buffWriter.flush();

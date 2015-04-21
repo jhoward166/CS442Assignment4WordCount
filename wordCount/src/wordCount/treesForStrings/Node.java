@@ -15,7 +15,7 @@ public class Node{
 	public void incrementInstanceCount(){ //increments the number if the word is a duplicate
 		instancesOfWord++; 
 	}
-		public String getWord(){
+	public String getWord(){
 		return word;
 	}
 	

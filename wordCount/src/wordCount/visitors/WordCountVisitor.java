@@ -4,6 +4,7 @@ import wordCount.treesForStrings.BST;
 import wordCount.treesForStrings.Node;
 import wordCount.util.FileProcessor;
 import java.io.IOException;
+import wordCount.util.Logger;
 
 public class WordCountVisitor implements Visitor{
     private FileProcessor proc;
@@ -29,6 +30,7 @@ public class WordCountVisitor implements Visitor{
     private void inorder(Node n){
         if(n != null){
             inorder(n.getLeft()); 
+            Logger.printToStdout(3, "A node has been visited.");
             totalNumWords += n.getInstanceCount();
             totalChars += n.getNumChars(); 
             numUniqueWords++;

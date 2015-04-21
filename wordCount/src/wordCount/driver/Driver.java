@@ -4,10 +4,13 @@ import wordCount.util.FileProcessor;
 import wordCount.treesForStrings.BST;
 import wordCount.visitors.PopulateTreeVisitor;
 import wordCount.visitors.WordCountVisitor;
+import wordCount.util.Logger;
 
 public class Driver{
     public static void main(String[] args){
-        //LOGGER_VALUE = Integer.parseInt(args[0]);
+        Logger log = Logger.getInstance();
+        int LOGGER_VALUE = Integer.parseInt(args[0]);
+        log.setDebugValue(LOGGER_VALUE);
         String inputFile = args[1];
         String outputFile = args[2];
         int iterations = Integer.parseInt(args[3]);

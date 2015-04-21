@@ -1,6 +1,7 @@
 package wordCount.treesForStrings;
 
 import wordCount.visitors.Visitor;
+import wordCount.util.Logger;
 
 public class BST{
 	private Node root;
@@ -9,11 +10,11 @@ public class BST{
 	private int totalChars = 0;
 	
 	public BST(){
-		root = null;
+    	root = null;
 	}
 
 	public boolean isEmpty(){
-		if(root == null){
+        if(root == null){
 			return true;
 		}
 		return false;
@@ -24,6 +25,7 @@ public class BST{
 	}
 
 	private Node insertNode(Node node, String word){
+        Logger.printToStdout(3, "A node has been inserted into the tree.");
 		if(node == null){
 			node = new Node(word);
 		}else{
@@ -40,25 +42,7 @@ public class BST{
     
     public Node getRoot(){
         return root;
-    }
-	
-	private void inorder(Node n, int selection){
-		if(n != null){
-			if(1 == selection){ //get total Num words in tree
-				inorder(n.getLeft(), 1);
-				totalNumWords += n.getInstanceCount();
-				inorder(n.getRight(), 1);
-			}else if(2 == selection){ // get total num of chars
-				inorder(n.getLeft(), 2);
-				totalChars += n.getNumChars();
-				inorder(n.getRight(), 2);
-			}else{// get total num of unique words
-				inorder(n.getLeft(), 3);
-				numUniqueWords++;
-				inorder(n.getRight(), 3);
-			}
-		}
-	}
+    }	
 
 	public void accept(Visitor visitor){ //accept the visitor
 		visitor.visit(this);
