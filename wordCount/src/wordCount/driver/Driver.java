@@ -14,7 +14,6 @@ public class Driver{
         String inputFile = args[1];
         String outputFile = args[2];
         int iterations = Integer.parseInt(args[3]);
-        System.out.println("I am a driver!");
         long startTime = System.currentTimeMillis();
         for(int i=0; i<iterations; i++){
             BST tree = new BST();

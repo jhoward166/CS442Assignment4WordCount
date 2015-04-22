@@ -52,9 +52,9 @@
 <target name="run" depends="jar">
         <java jar="${BUILD}/jar/wordCount.jar"  fork="true">
         	<arg value="0"/>
-       		<arg value="input1M.txt"/>
+       		<arg value="input40M.txt"/>
         	<arg value="output.txt"/>
-            <arg value="5"/>
+            <arg value="1"/>
         </java>
 	
     </target>
