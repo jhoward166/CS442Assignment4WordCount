@@ -9,11 +9,11 @@ import wordCount.util.Logger;
 public class Driver{
     public static void main(String[] args){
         Logger log = Logger.getInstance();
-        int LOGGER_VALUE = Integer.parseInt(args[0]);
+        int LOGGER_VALUE = Integer.parseInt(args[3]);
         log.setDebugValue(LOGGER_VALUE);
-        String inputFile = args[1];
-        String outputFile = args[2];
-        int iterations = Integer.parseInt(args[3]);
+        String inputFile = args[0];
+        String outputFile = args[1];
+        int iterations = Integer.parseInt(args[2]);
         long startTime = System.currentTimeMillis();
         for(int i=0; i<iterations; i++){
             BST tree = new BST();

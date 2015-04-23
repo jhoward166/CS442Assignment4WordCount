@@ -60,7 +60,26 @@ TO COMPILE:
 
 TO RUN:
 
-    Run the command "ant -buildfile src/build.xml run"
+    Run the command "ant -buildfile src/build.xml run -Darg0="input.txt" -Darg1=output.txt -Darg2="3" -Darg3="0""
+
+JUSTIFICATION:
+
+We used a binary search tree to store unique words alphabetically.
+When a duplicate word enters the tree the node it matches has a counter
+that is incremented. Each node has the number of times the word has been
+entered into the tree, the number of characters in the word, a left and
+right child, and the String the node was initialized to track. The code
+for our BST was made by us, rather than take from a library. The reason
+for this is that normal trees rebalance so that the access of a single
+element will be at most O(logn). We are not accessing single elements,
+only dumping all of the words into the tree, then iterating back over
+it therefore this balancing is wasted time. Our data structure contains
+only what it needs to function, and no more. This would make it
+difficult to expand upon, but also makes it faster. The only other real
+decision that factored into design was the use of BufferedReader to
+parse the text file instead of Scanner. We discovered by testing both
+implementations that BufferedReader was significantly faster on the
+files of larger size.
 
 LOGGER VALUES:
 

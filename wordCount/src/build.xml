@@ -51,10 +51,10 @@
 
 <target name="run" depends="jar">
         <java jar="${BUILD}/jar/wordCount.jar"  fork="true">
-        	<arg value="0"/>
-       		<arg value="input40M.txt"/>
-        	<arg value="output.txt"/>
-            <arg value="1"/>
+        	<arg value="${arg0}"/>
+       		<arg value="${arg1}"/>
+        	<arg value="${arg2}"/>
+            <arg value="${arg3}"/>
         </java>
 	
     </target>
